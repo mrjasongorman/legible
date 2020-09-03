@@ -10,3 +10,5 @@ The aim is to be as small as possible with only small adjustments from sensible 
 |Minified|992 b|
 |Gzip|509 b|
 |Brotli|381 b|
+
+Minified via `cat legible.css | tr -d " \t\n\r" > legible.min.css`
