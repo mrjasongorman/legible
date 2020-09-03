@@ -6,7 +6,7 @@ The aim is to be as small as possible with only small adjustments from sensible 
 
 |Type|Size|
 |---|---|
-|Normal|1.2k|
-|Min|992b|
+|Normal|1.2kb|
+|Minified|992b|
 |Gzip|509b|
 |Brotli|381b|
