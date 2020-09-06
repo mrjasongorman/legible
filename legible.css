@@ -14,13 +14,19 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
   font-size: 1.1rem;
 }
 
+h1, h2, h3 {
+  margin-bottom: 0.55em;
+  line-height: 1.3;
+  letter-spacing: 0.05ch;
+}
+
 code {
   font-size: 16px;
   line-height: 1.6;
 }
 
 h4, h5, h6 {
-  margin-top: 0.7rem;
+  margin-top: 1rem;
   margin-bottom: 0.7rem;
 }
 
@@ -90,4 +96,9 @@ blockquote, q {
   padding: 1rem;
   margin: 1rem;
   margin-left: 0;
+}
+
+time {
+  display: inline-block;
+  margin-bottom: 1rem;
 }
