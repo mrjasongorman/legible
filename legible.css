@@ -1,3 +1,7 @@
+:root {
+  --primary: tomato;
+}
+
 *,*:before,*:after {
   box-sizing: border-box;
 }
@@ -42,6 +46,10 @@ h3 {
   font-size: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary, blue);
 }
 
 img {
