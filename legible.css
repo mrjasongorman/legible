@@ -1,5 +1,14 @@
 :root {
   --primary: tomato;
+  --text: hsl(0deg, 0%, 0%);
+  --background: hsl(0deg, 0%, 85%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: hsl(0deg, 0%, 80%);
+    --background: hsl(0deg, 0%, 0%);
+  }
 }
 
 *,*:before,*:after {
@@ -11,6 +20,8 @@ body {
   max-width: 71ch;
   margin: 0 auto;
   padding: 1rem;
+  color: var(--text);
+  background-color: var(--background);
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
@@ -62,9 +73,9 @@ img {
 
 kbd {
   display: inline-block;
-  border: 1px solid #777;
+  border: 1px solid var(--text);
   padding: 0.1em 0.2em;
-  background-color: #ddd;
+  background-color: var(--background);
 }
 
 ul, ol {
@@ -76,12 +87,12 @@ pre {
   max-width: 100%;
   overflow: auto;
   padding: 0.5rem;
-  border: 1px solid black;
+  border: 1px solid var(--text);
 }
 
 hr {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--text);
 }
 
 table {
@@ -90,7 +101,7 @@ table {
 }
 
 thead {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--text);
 }
 
 td, th {
@@ -100,7 +111,7 @@ td, th {
 
 blockquote, q {
   display: block;
-  border-left: 5px solid black;
+  border-left: 5px solid var(--text);
   padding: 1rem;
   margin: 1rem;
   margin-left: 0;
