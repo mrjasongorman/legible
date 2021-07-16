@@ -1,7 +1,7 @@
 :root {
   --primary: tomato;
   --text: hsl(0deg, 0%, 0%);
-  --background: hsl(0deg, 0%, 85%);
+  --background: hsl(0deg, 0%, 97%);
 }
 
 @media (prefers-color-scheme: dark) {
