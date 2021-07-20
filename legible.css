@@ -1,13 +1,14 @@
 :root {
+  color-scheme: light dark;
+  --text: CanvasText;
+  --background: Canvas;
+
   --primary: tomato;
-  --text: hsl(0deg, 0%, 0%);
-  --background: hsl(0deg, 0%, 97%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: hsl(0deg, 0%, 80%);
-    --background: hsl(0deg, 0%, 0%);
+    --primary: tomato;
   }
 }
 
@@ -120,4 +121,5 @@ blockquote, q {
 time {
   display: inline-block;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
