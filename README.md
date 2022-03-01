@@ -6,9 +6,9 @@ The aim is to be as small as possible with only small adjustments from sensible 
 
 |Type|Size|
 |---|---|
-|Normal|1.7 kb|
-|Minified|1.4 kb|
-|Gzip|638 bytes|
-|Brotli|504 bytes|
+|Normal|2.5 kb|
+|Minified|2.0 kb|
+|Gzip|830 bytes|
+|Brotli|660 bytes|
 
 Minified via `cat legible.css | tr -d " \t\n\r" > legible.min.css`
