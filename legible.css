@@ -3,7 +3,8 @@
   --text: CanvasText;
   --background: Canvas;
 
-  --primary: tomato;
+  --primary: crimson;
+  --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,15 +18,18 @@
 }
 
 body {
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-family: var(--font, sans-serif);
   max-width: 71ch;
   margin: 0 auto;
   padding: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
   color: var(--text);
   background-color: var(--background);
+  accent-color: var(--primary);
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, button, input, textarea {
   line-height: 1.6;
   font-size: 1.1rem;
 }
@@ -121,5 +125,47 @@ blockquote, q {
 time {
   display: inline-block;
   margin-bottom: 1rem;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+form > * {
+  display: block;
+}
+
+form > * + * {
+  margin-top: 1rem;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea {
+  padding: 0.5rem;
+}
+
+textarea {
+  font-family: var(--font, sans-serif);
 }
