@@ -2,77 +2,172 @@
   color-scheme: light dark;
   --text: CanvasText;
   --background: Canvas;
-
-  --primary: crimson;
-  --font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  --font-size: 1.3rem;
+  --color-primary: mediumpurple;
+  --heading-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+  --border-thickness: 3px;
+  
+  --step-0: clamp(1.25rem, calc(1.21rem + 0.22vw), 1.38rem);
+  --step-1: clamp(1.50rem, calc(1.42rem + 0.38vw), 1.72rem);
+  --step-2: clamp(1.80rem, calc(1.68rem + 0.61vw), 2.15rem);
+  --step-3: clamp(2.16rem, calc(1.98rem + 0.91vw), 2.69rem);
+  --step-4: clamp(2.59rem, calc(2.33rem + 1.33vw), 3.36rem);
+  --step-5: clamp(3.11rem, calc(2.73rem + 1.89vw), 4.20rem);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary: tomato;
-  }
-}
-
-*,*:before,*:after {
+/* Box sizing rules */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
 body {
-  font-family: var(--font, 'sans-serif');
-  font-size: var(--font-size);
-  line-height: 2.9ex;
-  max-width: 68ch;
-  margin: 0 auto;
-  padding: 1rem;
-  color: var(--text);
-  background-color: var(--background);
-  accent-color: var(--primary);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: var(--heading-font-family);
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 :focus {
-  outline-offset: 0.2em;
+  outline-offset: 0.3ex;
+  outline-width: 0.4ex;
   outline-style: dashed;
-  outline-width: 3px;
+  outline-color: var(--text);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  line-height: 2.3ex;
-  margin-top: 2.3ex;
-  margin-bottom: 1ex;
+body {
+  background: var(--background);
+  color: var(--text);
+  padding: var(--step-2, 2em);
+  font-family: var(--font-family);
+  font-size: var(--step-0);
+  line-height: 1.7;
+  accent-color: var(--color-primary);
 }
 
-h1, h2, h3 {
-  letter-spacing: 0.03ch;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font-family);
+  font-weight: 800;
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: var(--step-4);
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: var(--step-3);
 }
 
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--step-2);
+}
+
+ul,
+ol {
+  padding-inline-start: 1em;
+}
+
+blockquote {
+  padding-inline-start: 1em;
+  border-inline-start: 0.3em solid;
+  font-style: italic;
+  font-size: var(--step-1);
+}
+
+:is(h1, h2, h3, h4, h5, h6, blockquote) {
+  --flow-space: 1.5em;
+}
+
+:is(h1, h2, h3, h4, h5, h6) + * {
+  --flow-space: 0.5em;
+}
+
+article {
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+article > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+blockquote {
+  max-width: 50ch;
+}
+
+h1 {
+  max-width: 20ch;
+}
+
+h2,
 h3 {
-  font-size: 1.5rem;
-}
-
-h4 {
-  font-size: var(--font-size);
-}
-
-h5, h6 {
-  font-size: var(--font-size);
-}
-
-code {
-  font-size: 16px;
-  line-height: 2.5ex;
+  max-width: 28ch;
 }
 
 a {
-  color: var(--primary, blue);
+  color: currentColor;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 0.3ex;
+  text-underline-offset: 0.3ex;
 }
 
 img {
@@ -81,22 +176,25 @@ img {
   width: auto;
   max-width: 100%;
   background-color: #777;
+  border: var(--border-thickness) solid var(--text);
 }
 
-p, dl, multicol {
-  margin-top: 1.5ex;
-  margin-bottom: 1.5ex;
-}
-
-kbd {
+time {
+  font-family: var(--heading-font-family);
   display: inline-block;
-  border: 1px solid var(--text);
-  padding: 0.1em 0.2em;
-  background-color: var(--background);
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-ul, ol {
-  padding-left: 1.8rem;
+button {
+  background: var(--color-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 pre {
@@ -104,12 +202,14 @@ pre {
   max-width: 100%;
   overflow: auto;
   padding: 0.5rem;
-  border: 1px solid var(--text);
+  border: var(--border-thickness) solid var(--text);
 }
 
-hr {
-  border: none;
-  border-bottom: 1px solid var(--text);
+kbd {
+  display: inline-block;
+  border: var(--border-thickness) solid var(--text);
+  padding: 0.1em 0.2em;
+  background-color: var(--background);
 }
 
 table {
@@ -118,7 +218,7 @@ table {
 }
 
 thead {
-  border-bottom: 2px solid var(--text);
+  border-bottom: var(--border-thickness) solid var(--text);
 }
 
 td, th {
@@ -126,24 +226,9 @@ td, th {
   text-align: left;
 }
 
-blockquote, q {
-  display: block;
-  border-left: 5px solid var(--text);
-  padding: 1rem;
-  margin: 1rem;
-  margin-left: 0;
-}
-
-time {
-  display: inline-block;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  width: 1.3em;
-  height: 1.3em;
+hr {
+  border-top: var(--border-thickness) solid var(--text);
+  border-bottom: 0;
 }
 
 form > * {
@@ -151,18 +236,7 @@ form > * {
 }
 
 form > * + * {
-  margin-top: 1rem;
-}
-
-button {
-  background: var(--primary);
-  color: white;
-  font-weight: 700;
-  font-size: 1.3rem;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 5px;
+  margin-top: var(--flow-space, 1em);
 }
 
 input[type="text"],
@@ -177,11 +251,33 @@ input[type="url"],
 input[type="week"],
 textarea {
   font-size: 1.3rem;
-  padding: 0.7em;
+  padding: 0.5em;
   max-width: 100%;
-  border: 2px solid;
+  border: var(--border-thickness) solid var(--text);
 }
 
-textarea {
-  font-family: var(--font, 'sans-serif');
+.intro {
+  font-size: var(--step-1);
+  font-style: italic;
+  max-width: 50ch;
+  text-wrap: balance;
+}
+
+.intro + * {
+  --flow-space: 2em;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
