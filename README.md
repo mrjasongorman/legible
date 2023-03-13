@@ -8,9 +8,9 @@ The aim is to be as small as possible with only small adjustments from sensible 
 
 |Type|Size|
 |---|---|
-|Normal|2.5 kb|
-|Minified|2.0 kb|
-|Gzip|830 bytes|
-|Brotli|660 bytes|
+|Normal|4.8 kb|
+|Minified|3.9 kb|
+|Gzip|1.5 kb|
+|Brotli|1.2 kb|
 
 Minified via `cat legible.css | tr -d " \t\n\r" > legible.min.css`
